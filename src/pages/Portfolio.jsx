@@ -1,5 +1,18 @@
+import { Project, ProjectWrapper, Wrapper } from "./styles"
+
 const Portfolio = () => {
-    return(<h1>Portfolio page</h1>)
+    return(
+        <Wrapper>
+            <h1>What I've built</h1>
+            <ProjectWrapper>
+                <Project />
+                <Project />
+                <Project />
+            </ProjectWrapper>
+            
+        </Wrapper>
+        
+    )
 }
 
 export default Portfolio;

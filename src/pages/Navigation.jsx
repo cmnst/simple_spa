@@ -1,23 +1,32 @@
-import { Link, Outlet } from "react-router-dom";
-import '../styles.css';
+import { Outlet } from "react-router-dom";
+import {Nav, LinkWrapper, NavLink, SocialLinkWrapper, Github, LinkedIn} from './styles.jsx';
 
 const Navigation = () => {
   return (
-    <div className="mainNav">
-    <Link smooth className="mainNav-link" to="/">
-      Home
-    </Link>
-    <Link smooth className="mainNav-link" to="/portfolio">
-      Portfolio
-    </Link>
-    <Link smooth className="mainNav-link" to="/about">
-      About me
-    </Link>
-    <Link smooth className="mainNav-link" to="/contact">
-      Contact
-    </Link>
-      <Outlet />
-    </div>
+    <Nav>
+      <LinkWrapper>
+        <NavLink to="/">
+          Home
+        </NavLink>
+        <NavLink to="/about">
+          About me
+        </NavLink>
+        <NavLink to="/skills">
+          Skills
+        </NavLink>
+        <NavLink to="/portfolio">
+          Projects
+        </NavLink>
+        <NavLink to="/contact">
+          Contact
+        </NavLink>
+        <Outlet />
+      </LinkWrapper>
+      <SocialLinkWrapper>
+        <Github />
+        <LinkedIn />
+      </SocialLinkWrapper>
+    </Nav>
   );
 };
 
