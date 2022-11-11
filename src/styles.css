@@ -22,3 +22,16 @@ html, body {
   background-color: rgb(18, 18, 26);
   font-family: 'Space Mono', monospace;
 }
+
+@media only screen and (max-width: 40em) {
+  .App {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 30em) {
+  .App {
+    height: auto;
+    min-height: 100vh;
+  }
+}

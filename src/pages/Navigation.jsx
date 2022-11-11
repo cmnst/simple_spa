@@ -17,9 +17,6 @@ const Navigation = () => {
         <NavLink to="/portfolio">
           Projects
         </NavLink>
-        <NavLink to="/contact">
-          Contact
-        </NavLink>
         <Outlet />
       </LinkWrapper>
       <SocialLinkWrapper>

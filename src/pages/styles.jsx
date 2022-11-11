@@ -8,8 +8,37 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    @media (max-width: 65em) {
+        width: 100%;
+        font-size: .8em;
+    }
 
 `
+
+export const Paragraph = styled.div`
+    ${props => props.aboutPage && css`
+        font-size: 1.2em;
+    `}
+
+    ${props => props.projectTitle && css`
+        font-size: 1.1em;
+        font-weight: 700;
+    `}
+
+    ${props => props.description && css`
+        margin-top: .5rem;
+        font-size: .8em;
+    `}
+
+    ${props => props.skill && css`
+        margin-left: .4rem;
+    `}
+
+`
+
+
 
 // Navigation
 
@@ -22,7 +51,19 @@ export const Nav = styled.div`
     align-items: center;
     justify-content: center;
     background-color: rgb(27, 27, 37);
-`;
+
+    @media (min-width: 41em) {
+        min-width: 12%;
+        height: 100%;
+    }
+
+    @media (max-width: 40em) {
+        min-width: 12%;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+    }
+`
 
 export const LinkWrapper= styled.div`
     width: auto;
@@ -30,6 +71,16 @@ export const LinkWrapper= styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: 40em) {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    @media (max-width: 30em) {
+        display: none;
+    }
 `;
 
 
@@ -43,21 +94,33 @@ export const NavLink = styled(Link)`
     &:hover {
         color: rgb(255, 204, 0);
     }
+    @media (max-width: 40em) {
+        margin: 0 1rem;
+    }
 `
 
 export const SocialLinkWrapper = styled.div`
     width: auto;
+    @media (max-width: 40em) {
+        display: flex;
+        flex-direction: row;
+        margin-right: .5em;
+    }
 `
 
 const iconStyle = css`
     color: rgb(255, 255, 255);
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.5em;
+    width: 1.5em;
     transition: all .4s ease;
     margin: 1rem .5rem;
     &:hover {
         cursor: pointer;
         color: rgb(255, 204, 0);
+    }
+    @media (max-width: 30em) {
+        height: 1.1em;
+        width: 1.1em;
     }
 `
 
@@ -80,7 +143,14 @@ export const Layout = styled.div`
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 30em) {
+        min-height: 100%; 
+        flex-grow: 1;
+    }
+
 `
+
+// PAGES
 
 // Home page
 
@@ -114,7 +184,17 @@ export const Button = styled(Link)`
 
 `
 
-// About
+// About page
+
+export const AboutWrapper = styled(Wrapper)`
+    @media (max-width: 58em) {
+        width: 80%;
+        min-height: 100%;
+        height: auto;
+        font-size: .7rem;
+    }
+
+`
 
 export const AboutImg = styled.img`
     width: 10rem;
@@ -130,17 +210,30 @@ export const TextWrapper = styled.div`
 
 export const Name = styled.span`
     color: rgb(255, 205, 0);
+    font-size: 1.2em;
 `
 
-// Skills
+// Skills page
 
-export const SkillsWrapper = styled.div`
+export const SkillsWrapper = styled(Wrapper)`
+    @media (max-width: 600px) {
+        width: 100%;
+        height: auto;
+        font-size: .7rem;
+    }
+
+`
+
+export const SubWrapper = styled.div`
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
-
+    @media (max-width: 600px) {
+        font-size: .7rem;
+        height: 100%;
+    }
 
 `
 
@@ -148,28 +241,108 @@ export const Tech = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     margin-bottom: 3rem;
 `
 
 export const TechSkills = styled.div`
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    @media (max-width: 600px) {
+        max-width: 60%;
+    }
+
+    @media (max-width: 850px) {
+        max-width: 80%;
+    }
 `
 
 export const Skill = styled.div`
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: space-evenly;
-    max-width: 8rem;
-    min-width: 7rem;
-    min-height: 2.5rem;
-    max-height: 3rem;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border: 2px solid rgb(27, 27, 37);
+    border-radius: 5px;
+    font-size: 1.3rem;
+    margin: .2rem;
+    padding: .5rem;
+    transition: all .4s ease;
+    &:hover {
+        color: rgb(255, 205, 0);
+        transform: translateY(-3px);
+
+    }
+    @media (max-width: 600px) {
+        width: auto;
+        height: auto;
+        font-size: 1rem;
+    }
+
+`
+
+export const Box = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    @media (max-width: 600px) {
+        font-size: 1rem;
+    }
+
+
+`
+
+// Portfolio page
+
+export const ProjectsWrapper = styled(Wrapper)`
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    align-items: flex-start;
+    margin-top: 2rem;
+
+    @media (max-width: 58em) {
+        grid-template-columns: repeat(2, 1fr);
+        font-size: .7rem;
+        width: 70%;
+    }
+
+    @media (max-width: 40em) {
+        grid-template-columns: repeat(2, 1fr);
+        font-size: .7rem;
+    }
+
+    @media (max-width: 30em) {
+        min-height: 100%;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1em;
+        font-size: .7rem;
+    }
+`
+
+export const Project = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: baseline;
+    flex: 1;
     border: 2px solid rgb(27, 27, 37);
     border-radius: 5px;
     font-size: 1rem;
-    margin: .2rem;
+    // height: 100%;
+    // width: 100%;
+    min-width: 15em;
+    min-height: 8em;
+    padding: .5rem;
     transition: all .4s ease;
     &:hover {
         color: rgb(255, 205, 0);
@@ -177,57 +350,22 @@ export const Skill = styled.div`
 
     }
 
-`
-
-export const Soft = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-`
-
-export const SoftSkills = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 4px;
-    grid-row-gap: 4px;
-`
-
-export const SoftSkill = styled(Skill)`
-    min-width: 15rem;
-    font-size: .9rem;
-    border: none;
-    transition: none;
-    &:hover {
-        transform: none;
+    @media (max-width: 30em) {
+        min-width: 10em;
     }
 
+    @media (max-width: 40em) {
+        font-size: .7rem;
+    }
 
-`
-
-// Portfolio
-
-export const ProjectWrapper = styled(Wrapper)`
-    flex-direction: row;
-    margin-top: 3rem;
-`
-
-export const Project = styled.div`
-    max-width: 25rem;
-    min-width: 15rem;
-    min-height: 7rem;
-    max-height: 10rem;
-    background-color: rgb(27, 27, 37);
-    border-radius: 3px;
-    margin: 0 1rem;
-    transition: all .4s ease;
-    &:hover {
-        transform: scale(1.05)
+    @media (max-width: 65em) {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        font-size: .8rem;
     }
 
 `
-
-// Contact
 
 

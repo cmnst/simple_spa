@@ -5,7 +5,6 @@ import { Layout } from './pages/styles';
 import Home from './pages/Home';
 import NoPage from './pages/NoPage';
 import About from './pages/About';
-import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 import Skills from './pages/Skills';
 
@@ -22,7 +21,6 @@ const App = () => {
             <Route path="about" element={<About />}/>
             <Route path="skills" element={<Skills />}/>
             <Route path="portfolio" element={<Portfolio />}/>
-            <Route path="contact" element={<Contact />}/>
             <Route path="*" element={<NoPage />} />  
         </Routes>
       </Layout>
