@@ -42,6 +42,69 @@ export const Paragraph = styled.div`
 
 // Navigation
 
+export const StyledBurger = styled.div`
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  display: none;
+  margin-left: 1.5em;
+  z-index: 2;
+
+  @media (max-width: 30em) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  div {
+    width: 2em;
+    height: 0.2em;
+    margin: 0;
+    background-color: white;
+    border-radius: 10px;
+    transform-origin: 1px;
+    transition: all 0.3s linear;
+
+    &:nth-child(1) {
+      transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
+    }
+    &:nth-child(2) {
+      transform: ${({ open }) => (open ? "translateX(100%)" : "translateX(0)")};
+      opacity: ${({ open }) => (open ? 0 : 1)};
+    }
+    &:nth-child(3) {
+      transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
+    }
+  }
+`;
+
+export const StyledFullMenu = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: -100vh;
+  left: 0;
+  z-index: 1;
+  background-color: rgb(27, 27, 37);
+  transition: all 0.3s linear;
+  transform: ${({ open }) => (open ? "translateY(100%)" : "translateX(0)")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul > li {
+    margin: 1em;
+  }
+
+` 
+
+
 export const Nav = styled.div`
     min-width: 10%;
     width: auto;
@@ -62,15 +125,19 @@ export const Nav = styled.div`
         width: 100%;
         height: auto;
         flex-direction: row;
+        justify-content: space-between;
     }
 `
 
-export const LinkWrapper= styled.div`
+export const NavLinks= styled.ul`
+    list-style-type: none;
     width: auto;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    padding: 0;
 
     @media (max-width: 40em) {
         width: 100%;
@@ -104,7 +171,7 @@ export const SocialLinkWrapper = styled.div`
     @media (max-width: 40em) {
         display: flex;
         flex-direction: row;
-        margin-right: .5em;
+        margin-right: 1.5em;
     }
 `
 
@@ -113,14 +180,14 @@ const iconStyle = css`
     height: 1.5em;
     width: 1.5em;
     transition: all .4s ease;
-    margin: 1rem .5rem;
+    margin: 1em .5em;
     &:hover {
         cursor: pointer;
         color: rgb(255, 204, 0);
     }
     @media (max-width: 30em) {
-        height: 1.1em;
-        width: 1.1em;
+        height: 1.4em;
+        width: 1.4em;
     }
 `
 

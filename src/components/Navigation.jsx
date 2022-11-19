@@ -1,10 +1,19 @@
 import { Outlet } from "react-router-dom";
-import {Nav, LinkWrapper, NavLink, SocialLinkWrapper, Github, LinkedIn} from './styles.jsx';
+import {Nav, NavLinks, NavLink, SocialLinkWrapper, Github, LinkedIn} from '../pages/styles.jsx';
+import Burger from './Burger.jsx';
+import FullMenu from "./FullMenu.jsx";
+import { useState } from "react";
+
 
 const Navigation = () => {
+
+  const [open, setOpen] = useState(false);
+
   return (
     <Nav>
-      <LinkWrapper>
+      <Burger open={open} setOpen={setOpen} />
+      <FullMenu open={open} setOpen={setOpen}/>
+      <NavLinks>
         <NavLink to="/">
           Home
         </NavLink>
@@ -18,7 +27,7 @@ const Navigation = () => {
           Projects
         </NavLink>
         <Outlet />
-      </LinkWrapper>
+      </NavLinks>
       <SocialLinkWrapper>
         <Github />
         <LinkedIn />

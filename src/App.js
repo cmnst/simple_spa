@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './styles.css';
-import Navigation from './pages/Navigation';
+import Navigation from './components/Navigation.jsx';
 import { Layout } from './pages/styles';
 import Home from './pages/Home';
 import NoPage from './pages/NoPage';
