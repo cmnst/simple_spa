@@ -1,6 +1,7 @@
 import styled, {css} from 'styled-components';
 import {Link} from 'react-router-dom';
 import {FaGithub, FaLinkedin} from 'react-icons/fa';
+import {motion} from 'framer-motion';
 
 // Reusable
 
@@ -221,7 +222,7 @@ export const Layout = styled.div`
 
 // Home page
 
-export const Avatar = styled.img`
+export const Avatar = styled(motion.img)`
     width: 5rem;
     height: 5rem;
 
@@ -374,7 +375,7 @@ export const ProjectsWrapper = styled(Wrapper)`
     grid-template-columns: repeat(3, 1fr);
     gap: 2em;
     align-items: flex-start;
-    margin-top: 2rem;
+    margin: 2em;
 
     @media (max-width: 58em) {
         grid-template-columns: repeat(2, 1fr);
@@ -408,7 +409,7 @@ export const Project = styled.div`
     // height: 100%;
     // width: 100%;
     min-width: 15em;
-    min-height: 8em;
+    min-height: 6em;
     padding: .5rem;
     transition: all .4s ease;
     &:hover {

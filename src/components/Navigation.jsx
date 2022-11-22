@@ -1,13 +1,18 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import {Nav, NavLinks, NavLink, SocialLinkWrapper, Github, LinkedIn} from '../pages/styles.jsx';
 import Burger from './Burger.jsx';
 import FullMenu from "./FullMenu.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 const Navigation = () => {
 
   const [open, setOpen] = useState(false);
+  const pathname = useLocation();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname])
 
   return (
     <Nav>

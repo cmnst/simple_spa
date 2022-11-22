@@ -1,5 +1,5 @@
 import { StyledFullMenu } from "../pages/styles";
-import {NavLinks, NavLink} from '../pages/styles';
+import {NavLink} from '../pages/styles';
 import { Outlet } from "react-router-dom";
 
 const FullMenu = ({open}) => {
